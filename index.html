@@ -9,21 +9,20 @@
     <style>
         :root {
             --dark-blue: #0d1b3e;
-            --section-blue: #1565c0;
-            --section-green: #2e7d32;
-            --section-purple: #6a1b9a;
-            --section-orange: #e67e22;
-            --section-red: #c62828;
-            --bg-light: #f4f7f6;
+            --sec-blue: #1565c0;
+            --sec-green: #2e7d32;
+            --sec-purple: #6a1b9a;
+            --sec-orange: #e67e22;
+            --sec-red: #c62828;
+            --bg: #f8f9fa;
         }
 
         body {
             font-family: 'Tajawal', sans-serif;
             background-color: #d1d8e0;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             color: #333;
-            line-height: 1.6;
         }
 
         .container {
@@ -32,19 +31,21 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         header {
-            background-color: var(--dark-blue);
+            background: var(--dark-blue);
             color: white;
             text-align: center;
             padding: 40px 20px;
-            border-bottom: 8px solid #ffc107;
+            border-bottom: 6px solid #ffc107;
         }
 
-        .section { margin-bottom: 35px; padding: 0 25px; }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { color: #ffc107; margin-top: 10px; font-weight: bold; }
+
+        .section { padding: 25px; border-bottom: 1px solid #eee; }
         
         .section-header {
             color: white;
@@ -52,7 +53,7 @@
             border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 25px;
         }
 
@@ -63,66 +64,66 @@
         }
 
         .card {
-            background: white;
+            background: #fff;
             border-radius: 15px;
             padding: 20px;
             border-top: 6px solid;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .card-title {
             background: var(--dark-blue);
             color: white;
-            padding: 5px 15px;
-            border-radius: 8px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
             font-weight: bold;
             display: inline-block;
             margin-bottom: 15px;
         }
 
-        /* التصميم الجديد لمسارات التدرج */
-        .progression-path {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+        .card ul { padding-right: 20px; margin: 0; }
+        .card li { margin-bottom: 8px; }
 
-        .step {
-            text-align: center;
-            flex: 1;
-            min-width: 120px;
+        /* تدرج الألوان */
+        .blue-s .section-header { background: var(--sec-blue); }
+        .blue-s .card { border-color: var(--sec-blue); }
+
+        .green-s .section-header { background: var(--sec-green); }
+        .green-s .card { border-color: var(--sec-green); }
+
+        .purple-s .section-header { background: var(--sec-purple); }
+        .purple-s .card { border-color: var(--sec-purple); }
+
+        .orange-s .section-header { background: var(--sec-orange); }
+        .orange-s .card { border-color: var(--sec-orange); }
+
+        .red-s .section-header { background: var(--sec-red); }
+        .red-s .card { border-color: var(--sec-red); }
+
+        /* مسار التدرج العقابي */
+        .path-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #f1f1f1;
             padding: 15px;
             border-radius: 10px;
-            font-weight: 800;
-            color: white;
-            position: relative;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
-
-        .arrow { color: #ccc; font-size: 1.5rem; }
-
-        /* الألوان المخصصة للأقسام الجديدة */
-        .orange-sec .section-header { background: var(--section-orange); }
-        .orange-sec .card { border-color: var(--section-orange); }
-
-        .red-sec .section-header { background: var(--section-red); }
-        .red-sec .card { border-color: var(--section-red); }
-
-        .yellow-step { background: #ffeb3b; color: #333; border: 2px solid #fbc02d; }
-        .orange-step { background: #ff9800; border: 2px solid #e67e22; }
-        .red-step { background: #d32f2f; border: 2px solid #b71c1c; }
+        .step { padding: 8px 15px; border-radius: 5px; font-weight: bold; color: white; }
+        .yellow { background: #ffeb3b; color: #000; }
+        .orange { background: #ff9800; }
+        .red { background: #d32f2f; }
 
         footer {
             background: #fff;
             padding: 20px;
             text-align: center;
-            border-top: 5px solid var(--section-red);
             font-weight: bold;
+            border-top: 4px solid var(--sec-red);
         }
     </style>
 </head>
@@ -131,87 +132,151 @@
 <div class="container">
     <header>
         <h1>ملخص كاك رزكار</h1>
-        <p>اتم استخراجها من ورقتين</p>
+        <p>مستخرجة من ورقتين</p>
     </header>
 
-    <!-- الأقسام الثلاثة الأولى (نفس المحتوى السابق مع تنسيق محسّن) -->
-    <!-- ... (تم تضمينها برمجياً لضمان اكتمال الموقع) ... -->
-
-    <!-- رابعاً: المخالفات التصاعدية (السلوك) -->
-    <section class="section orange-sec">
+    <!-- أولاً -->
+    <section class="section blue-s">
         <div class="section-header">
-            <i class="fas fa-exclamation-circle fa-2x"></i>
-            <h2>رابعاً: نظام المخالفات التصاعدية</h2>
+            <i class="fas fa-clock fa-2x"></i>
+            <h2>أولاً: زمن المباراة والأوقات المستقطعة</h2>
         </div>
-        
-        <div class="progression-path">
-            <div class="step yellow-step">1. إنذار</div>
-            <i class="fas fa-chevron-left arrow"></i>
-            <div class="step orange-step">2. إيقاف (دقيقتين)</div>
-            <i class="fas fa-chevron-left arrow"></i>
-            <div class="step red-step">3. الاستبعاد</div>
-        </div>
-
-        <div class="grid" style="margin-top: 20px;">
+        <div class="grid">
             <div class="card">
-                <span class="card-title">قواعد السلوك</span>
+                <span class="card-title">زمن المباراة الأساسي</span>
                 <ul>
-                    <li>المخالفات تصاعدية تبدأ بالتنبيه البسيط.</li>
-                    <li>تكرار الأخطاء الميدانية يؤدي للإيقاف.</li>
-                    <li>الأخطاء الجسيمة تؤدي للاستبعاد المباشر.</li>
+                    <li>شوطين، كل شوط <b>30 دقيقة</b>.</li>
+                    <li>راحة بين الشوطين <b>10 دقائق</b>.</li>
                 </ul>
             </div>
             <div class="card">
-                <span class="card-title">تعدد المخالفات</span>
+                <span class="card-title">الوقت الإضافي</span>
                 <ul>
-                    <li>في حال ارتكاب أكثر من مخالفة في وقت واحد، تُطبق <b>العقوبة الأكثر شدة</b> فقط.</li>
+                    <li>شوطين، كل شوط <b>5 دقائق</b>.</li>
+                    <li>راحة بينهما <b>دقيقة واحدة</b>.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <span class="card-title">الأوقات المستقطعة</span>
+                <ul>
+                    <li><b>3 أوقات</b> مستقطعة للمباراة.</li>
+                    <li>مدة الوقت الواحد <b>دقيقة واحدة</b>.</li>
+                    <li>حد أقصى <b>وقتين</b> في كل شوط.</li>
+                    <li><b>لا يوجد</b> وقت مستقطع في الإضافي.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- خامساً: العقوبات التصاعدية (الإجراءات) -->
-    <section class="section red-sec">
+    <!-- ثانياً -->
+    <section class="section green-s">
+        <div class="section-header">
+            <i class="fas fa-users fa-2x"></i>
+            <h2>ثانياً: اللاعبون، الإداريون، والحكام</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="card-title">اللاعبون والتبديل</span>
+                <ul>
+                    <li>الفريق: <b>14 لاعباً</b> (7 أساسي + 7 احتياط).</li>
+                    <li>أقل عدد للعب: <b>5 لاعبين</b>.</li>
+                    <li>منطقة التبديل: <b>4.5 متر</b> لكل فريق.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <span class="card-title">الطاقم الرسمي</span>
+                <ul>
+                    <li>الإداريون: <b>4 كحد أقصى</b>.</li>
+                    <li>الحكام: <b>حكمان</b> + ميقاتي + مسجل.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ثالثاً -->
+    <section class="section purple-s">
+        <div class="section-header">
+            <i class="fas fa-running fa-2x"></i>
+            <h2>ثالثاً: قواعد اللعب الميدانية</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="card-title">التحكم بالكرة</span>
+                <ul>
+                    <li>مسك الكرة: <b>3 ثوانٍ</b> فقط.</li>
+                    <li>المشي: <b>3 خطوات</b> بدون تنطيط.</li>
+                    <li>المسافة القانونية: <b>3 أمتار</b> عن الخصم.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <span class="card-title">اللعب السلبي والجزاء</span>
+                <ul>
+                    <li>اللعب السلبي: <b>4 تمريرات</b> بعد التحذير.</li>
+                    <li>رمية الـ 7م: التنفيذ خلال <b>3 ثوانٍ</b>.</li>
+                    <li>موقع اللاعب: خلف الخط بمسافة لا تزيد عن <b>متر</b>.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- رابعاً -->
+    <section class="section orange-s">
+        <div class="section-header">
+            <i class="fas fa-exclamation-triangle fa-2x"></i>
+            <h2>رابعاً: نظام المخالفات التصاعدية</h2>
+        </div>
+        <div class="path-box">
+            <div class="step yellow">1. إنذار</div>
+            <i class="fas fa-arrow-left"></i>
+            <div class="step orange">2. إيقاف (دقيقتين)</div>
+            <i class="fas fa-arrow-left"></i>
+            <div class="step red">3. الاستبعاد</div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <ul>
+                    <li>المخالفات تصاعدية تبدأ بالتنبيه البسيط.</li>
+                    <li>الأفعال الجسيمة تؤدي للاستبعاد المباشر.</li>
+                    <li>تعدد المخالفات في وقت واحد: تطبق <b>العقوبة الأشد فقط</b>.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- خامساً -->
+    <section class="section red-s">
         <div class="section-header">
             <i class="fas fa-gavel fa-2x"></i>
             <h2>خامساً: نظام العقوبات التصاعدية</h2>
         </div>
-
-        <div class="progression-path">
-            <div class="step yellow-step">بطاقة صفراء</div>
-            <i class="fas fa-chevron-left arrow"></i>
-            <div class="step orange-step">إيقاف دقيقتين</div>
-            <i class="fas fa-chevron-left arrow"></i>
-            <div class="step red-step">طرد (استبعاد)</div>
+        <div class="path-box">
+            <div class="step yellow">بطاقة صفراء</div>
+            <i class="fas fa-arrow-left"></i>
+            <div class="step orange">إيقاف دقيقتين</div>
+            <i class="fas fa-arrow-left"></i>
+            <div class="step red">طرد (استبعاد)</div>
         </div>
-
-        <div class="grid" style="margin-top: 20px;">
+        <div class="grid">
             <div class="card">
                 <span class="card-title">البطاقات والإيقاف</span>
                 <ul>
-                    <li><b>البطاقة الصفراء:</b> إنذار واحد فقط لكل لاعب.</li>
-                    <li><b>الإيقاف:</b> مرتين فقط لكل لاعب، والثالثة تعني استبعاداً.</li>
+                    <li><b>الصفراء:</b> إنذار واحد فقط لكل لاعب.</li>
+                    <li><b>الإيقاف:</b> مرتين فقط، والثالثة تعني <b>بطاقة حمراء</b>.</li>
                 </ul>
             </div>
             <div class="card">
-                <span class="card-title">الطرد والتقرير</span>
+                <span class="card-title">الاستبعاد والطرد</span>
                 <ul>
-                    <li><b>البطاقة الحمراء:</b> مغادرة الملعب ودكة البدلاء فوراً.</li>
-                    <li><b>البطاقة الزرقاء:</b> ترفع بعد الحمراء لكتابة تقرير رسمي.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <span class="card-title">عقوبة الفريق</span>
-                <ul>
-                    <li>الاستبعاد يتبعه <b>نقص عددي</b> للفريق لمدة دقيقتين.</li>
+                    <li>المطرود يغادر الملعب والدكة تماماً.</li>
+                    <li>أي استبعاد يتبعه <b>إيقاف دقيقتين للفريق</b>.</li>
+                    <li><b>البطاقة الزرقاء:</b> ترفع بعد الحمراء لتقرير كتابي.</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <footer>
-        <i class="fas fa-check-circle" style="color: #2e7d32;"></i>
-        هذا الملخص محدث وشامل لكافة قوانين كرة اليد.
+        ملاحظة: هذا الملخص يتوافق مع التعديلات الحديثة لقانون كرة اليد.
     </footer>
 </div>
 
